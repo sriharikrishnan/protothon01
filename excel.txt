@@ -1,0 +1,21 @@
+import pandas as pd
+import os
+import random
+t=1
+y=1
+x=0
+def csv(file):
+    x=0
+    n=['#','n um1','num2','num3','num4','num5']
+    a=pd.DataFrame([],columns=n)
+    a.to_csv(file)
+    while os.stat(file).st_size<2048:                #Check whether file size exceeds 2MB
+        b=[randomrandint(1,50) for i in range(5)]
+        b.insert(0,x)
+        b=pd.DataFrame([b])
+        b.to_csv(file,mode='a',header=False,index=False)
+        x=x+1
+while t<=3:
+    file="file"+str(t)+".csv"
+    csv(file)
+    t=t+1
